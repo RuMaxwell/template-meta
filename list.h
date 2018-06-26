@@ -20,7 +20,11 @@ lambda <func f> as map<f, nil>
 lambda <func f, par list> as filter {};
 lambda <func f, par x, par xs> as filter<f, cons<x, xs>>
 {
-	letf value = cons<par f<x>::value::value, xs>;
+	letf value = par churchbool<
+		par f<x>::value,
+		cons<x, par filter<f, xs>::value>,
+		par filter<f, xs>::value
+	>::value;
 };
 lambda <func f> as filter<f, nil>
 {

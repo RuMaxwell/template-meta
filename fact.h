@@ -1,3 +1,5 @@
+#pragma once
+
 #include "defs.h"
 
 lambda <int n> as fact
